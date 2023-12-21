@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Hotel Booking System</h1>
+    <ul>
+        <li><a href="{{ url_for('create_booking') }}">Create Booking</a></li>
+        <li><a href="{{ url_for('bookings') }}">View Bookings</a></li>
+    </ul>
+</body>
+</html>

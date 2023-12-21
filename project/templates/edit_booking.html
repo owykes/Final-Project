@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Booking</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Edit Booking</h1>
+    <form action="{{ url_for('edit_booking', booking_id=booking[0]) }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ booking[1] }}" required><br>
+
+        <label for="contact_number">Contact Number:</label>
+        <input type="tel" id="contact_number" name="contact_number" pattern="07[0-9]{9}" value="{{ booking[2] }}" placeholder="Enter a valid UK mobile number" required><br>
+
+        <label for="room_number">Room Number:</label>
+        <select id="room_number" name="room_number" required>
+            <option value="1" {% if booking[3] == 1 %}selected{% endif %}>Room 1</option>
+            <option value="2" {% if booking[3] == 2 %}selected{% endif %}>Room 2</option>
+            <option value="3" {% if booking[3] == 3 %}selected{% endif %}>Room 3</option>
+            <option value="4" {% if booking[3] == 4 %}selected{% endif %}>Room 4</option>
+            <option value="5" {% if booking[3] == 5 %}selected{% endif %}>Room 5</option>
+            <option value="6" {% if booking[3] == 6 %}selected{% endif %}>Room 6</option>
+        </select><br>
+
+        <label for="check_in">Check-in Date:</label>
+        <input type="date" id="check_in" name="check_in" value="{{ booking[4] }}" required><br>
+
+        <label for="check_out">Check-out Date:</label>
+        <input type="date" id="check_out" name="check_out" value="{{ booking[5] }}" required><br>
+
+        <button type="submit">Update Booking</button>
+    </form>
+    <a href="{{ url_for('view_bookings') }}">Back to Bookings</a>
+</body>
+</html>
